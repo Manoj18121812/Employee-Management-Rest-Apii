@@ -19,7 +19,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public Employee add(Employee employee){
+    public Employee add(@RequestBody Employee employee){
         return service.addEmployee(employee);
     }
 
@@ -56,7 +56,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/salary/{min}/{max}")
-    public List<Employee> sortBySalary(double min,double max){
+    public List<Employee> sortBySalary(@PathVariable double min,@PathVariable double max){
     return service.salaryRange(min,max);
     }
 
